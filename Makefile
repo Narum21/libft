@@ -12,7 +12,7 @@
 
 NAME = libft.a
 
-SRC = ft_strlen.c ft_isdigit.c ft_isalpha.c ft_isascii.c ft_isalnum.c 
+SRC = ft_strlen.c ft_isdigit.c ft_isalpha.c ft_isascii.c ft_isalnum.c ft_toupper.c ft_isprint.c 
 
 CFLAGS = -Wall -Wextra -Werror
 

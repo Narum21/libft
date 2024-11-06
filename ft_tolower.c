@@ -13,7 +13,8 @@ int ft_tolower(int c)
 int main(void)
 {
 	int test = 'P';
-	printf("%c se transforme en %c", test, ft_tolower(test));
+	if(ft_tolower(test))
+		printf("%c se transforme en %c", test, ft_tolower);
 }
 
 

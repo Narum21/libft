@@ -1,37 +1,44 @@
-#include <stddef.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgodino <fgodino@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 17:26:38 by fgodino           #+#    #+#             */
+/*   Updated: 2024/11/07 18:33:42 by fgodino          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *strnstr(const char *haystack, const char *needle, size_t len) {
-    size_t i, j;
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+    size_t len;
+    size_t j;
+    size_t i;
 
-    // Si needle est une chaîne vide, on retourne haystack.
-    if (*needle == '\0') {
-        return (char *)haystack;
-    }
+    i = 0;
+    j = 0;
 
-    for (i = 0; i < len && haystack[i] != '\0'; i++) {
-        if (haystack[i] == needle[0]) {  // Si on trouve le premier caractère
-            for (j = 0; i + j < len && haystack[i + j] == needle[j]; j++) {
-                if (needle[j + 1] == '\0') {  // Fin de la sous-chaîne trouvée
-                    return (char *)(haystack + i);
-                }
-            }
+    if (!big || !little)
+        return (NULL);
+    if (!little)
+        return (big);
+    while (big[i])
+    {
+        if (big[i] == little[j] && little[j])
+        {
+            i++;
+            j++;
+            return ((char *) big + i);
         }
+        i++;
     }
-
-    return NULL;  // Sous-chaîne non trouvée
+    return (NULL);
 }
-#include <stdio.h>
 
-int main() {
-    const char *str = "j'aime les pizza au nutella";
-    const char *sub = "pizza";
-    char *result = strnstr(str, sub, 10);
-
-    if (result) {
-        printf("Sous-chaîne trouvée : %s\n", result);
-    } else {
-        printf("Sous-chaîne non trouvée.\n");
-    }
-
-    return 0;
+int main(void)
+{
+    char big[] = "salut les gens";
+    char little[]= "les";
+    
 }

@@ -6,39 +6,30 @@
 /*   By: fgodino <fgodino@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:26:38 by fgodino           #+#    #+#             */
-/*   Updated: 2024/11/07 18:33:42 by fgodino          ###   ########.fr       */
+/*   Updated: 2024/11/21 22:59:05 by fgodino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t lon)
 {
-    size_t len;
     size_t j;
     size_t i;
-
-    i = 0;
-    j = 0;
-
-    if (!big || !little)
+    size_t lon1;
+ 
+    if (!little && !needle)
         return (NULL);
-    if (!little)
-        return (big);
-    while (big[i])
+    if (ft_strlen(needle) == 0)
+	    return ((char *) big);
+    lon = ft_strlen(needle);
+    i = 0;
+    while (big[i] && i < lon)
     {
-        if (big[i] == little[j] && little[j])
-        {
-            i++;
+        j = 0;
+        while (big[i + j] && big[i + j] == needle[j] && i + j < lon)
             j++;
-            return ((char *) big + i);
-        }
+        if (j == lon1)
+                return ((char *) big + i);
         i++;
     }
     return (NULL);
-}
-
-int main(void)
-{
-    char big[] = "salut les gens";
-    char little[]= "les";
-    
 }

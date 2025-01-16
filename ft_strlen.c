@@ -6,24 +6,25 @@
 /*   By: fgodino <fgodino@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 17:11:36 by fgodino           #+#    #+#             */
-/*   Updated: 2025/01/13 17:26:16 by fgodino          ###   ########.fr       */
+/*   Updated: 2025/01/16 16:22:51 by fgodino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int i;
+	size_t	i;
+
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }
-int main(void)
+/*int main(void)
 {
-	char str[]= "salut de  eqd qz";
-	printf("le nombre de caractères est %d", ft_strlen(str));
+	char str[]= "vive 42";
+	printf("le nombre de caractères est %zu", ft_strlen(str));
 }
-
+*/
